@@ -1,0 +1,37 @@
+﻿<div class="h-100">
+<div class="container-fluid">
+    <div class="row">
+        <div class="flex-container mt-4">
+            <div class="flex-item-1"></div>
+            <div class="flex-item-2" style="min-width: 360px">
+                <div class="card">
+                    <form novalidate #form="ngForm" (ngSubmit)="authenticate(form)">
+                        <div class="card-header">
+                            <h6 class="mb-0">Введите имя пользователя и пароль</h6>
+                        </div>
+                        <div class="card-body">
+                            <div *ngIf="errorMessage != null" class="alert alert-danger" role="alert">
+                                {{errorMessage}}
+                            </div>
+                            <div class="form-group">
+                                <label>Пользователь</label>
+                                <input class="form-control" name="username" [(ngModel)]="username" required />
+                            </div>
+                            <div class="form-group">
+                                <label>Пароль</label>
+                                <input class="form-control" type="password" name="password" [(ngModel)]="password" required />
+                            </div>
+                            <div class="text-xs-center">
+                                <button class="btn btn-primary" type="submit">Войти или зарегистрироваться</button>
+                            </div>
+                        </div>
+                    </form>
+                </div><!-- End card -->
+            </div>
+            <div class="flex-item-1"></div>
+        </div>
+    </div>
+    <!-- End row justify-content-md-center -->
+</div>
+<!-- End container-fluid -->
+</div>

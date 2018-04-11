@@ -1,0 +1,24 @@
+<div class="container-fluid">
+    <div class="row">
+        <form method="#11" action="#222" name="work-component-form" id="work-component-form" #form="ngForm">
+            <div class="card">
+                <div class="card-header">
+                    <h6 class="mb-0">Введите сообщение</h6>
+                </div>
+                <div class="card-body">
+                    <div class="form-group">
+                        <label>Сообщение</label>
+                        <input type="text" class="form-control" name="messageInput" id="messageInput" [(ngModel)]="message"/>
+                    </div>
+                    <div class="text-xs-center">
+                        <button class="btn btn-primary" type="button" (click)="sendMessage(message)">Отправить</button>
+                        <button class="btn btn-primary" type="button" (click)="getLastErrors()">Получить ошибки</button>
+                    </div>
+                </div>
+            </div><!-- End card -->
+        </form>
+        <p>{{answer}}</p>
+        <p>{{errors}}</p>
+    </div>
+    <!-- End row justify-content-md-center -->
+</div>
