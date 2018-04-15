@@ -12,10 +12,10 @@ import {BehaviorSubject} from "rxjs/BehaviorSubject";
 export class WorkComponent implements OnInit {
 
     /**Сокет к серверу сообщений*/
-    socket = io('http://localhost:8080');
+    socket = io('http://localhost:8080/chat');
 
     /**Сокет к серверу ошибок*/
-    socketError = io('http://localhost:8090');
+    socketError = io('http://localhost:8090/error');
 
     /**Соединение установлено*/
     socketConnected: BehaviorSubject<boolean> = new BehaviorSubject(false);
@@ -86,7 +86,7 @@ export class WorkComponent implements OnInit {
     sendMessage(message) {
         this.socketConnected.subscribe((connected) => {
             if (connected) {
-                this.socket.emit('message', {msg: message});
+                this.socket.send({msg: message});
             } else {
                 console.log('Соединение с сервером не установлено');
             }
